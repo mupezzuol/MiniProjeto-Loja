@@ -1,0 +1,86 @@
+body{
+    font-family: 'Open Sans', sans-serif;     
+    color: #4f6b72;
+}
+h1{
+    font-size: 50px;
+    color: #4f6b72;
+}
+h2{
+    font-size: 25px;
+    color: #4f6b72;
+}
+p{
+   font-size: 20px;
+   display: inline;
+   color: #4f6b72; 
+}
+.inputNeutro{
+    background: white; 
+    border: 1px solid #C1DAD7;
+    width:180px;
+    height: 28px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #4f6b72;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+.selectNeutro{
+    background: white; 
+    border: 1px solid #C1DAD7;
+    width:180px;
+    height: 28px;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+/*BOTOÕES*/
+.btnNeutro{
+    text-decoration: none;
+    cursor: pointer;
+    font: 15px 'Open Sans', sans-serif; 
+    background-color: #4f6b72;
+    border: 0px;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+.btnNeutro:hover
+{
+    text-decoration: none;
+    cursor: pointer;
+    font: 15px 'Open Sans', sans-serif; 
+    background-color: #C1DAD7;
+    border: 0px;
+    border-radius: 10px;
+    color: #ffffff; 
+    padding: 10px 20px;
+    transition-duration: 0.5s;
+}
+
+/*TABELAS*/
+th{
+	font: bold 20px 'Open Sans', sans-serif; 
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+        border-left: 1px solid #C1DAD7;
+        border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+}
+
+td{
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+        border-left: 1px solid #C1DAD7;
+        border-top: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}
+
+

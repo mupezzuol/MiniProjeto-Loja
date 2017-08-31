@@ -1,0 +1,86 @@
+-- CRIAÇÃO DA TABELA DE PRODUTOS
+create table produtos(
+    id serial,
+    nome varchar,
+    idMarca int,
+    preco numeric(10,1),
+    constraint pk_produtos primary key (id),
+    constraint fk_marcas foreign key (idMarca) references marcas(id) ON DELETE CASCADE ON UPDATE CASCADE    
+)
+
+-- CRIAÇÃO DA TABELA DE MARCAS
+create table marcas(
+    id serial,
+    marca varchar,
+    constraint pk_marcas primary key (id)    
+)
+
+-- CRIAÇÃO DA TABELA DE USUÁRIOS
+create table usuarios(
+	id serial,
+	usuario varchar not null,
+	senha varchar not null,
+	nva int not null,
+	constraint pk_usuarios primary key (id)
+)
+
+--INSERT DE USUARIOS
+insert into usuarios (usuario,senha,nva) values ('admin','1234',1);
+insert into usuarios (usuario,senha,nva) values ('murillo','murillo',2);
+insert into usuarios (usuario,senha,nva) values ('teste','teste123',3);
+
+
+--SELECT USUARIO
+select * from usuarios where usuario = 'admin' and senha = '1d234'
+
+
+-- INSERT DE MARCAS
+insert into marcas (marca) values ('Intel');
+insert into marcas (marca) values ('AMD');
+insert into marcas (marca) values ('Cisco');
+insert into marcas (marca) values ('LeNovo');
+insert into marcas (marca) values ('SONY');
+
+	
+select * from marcas;
+
+--UPDATE DE MARCAS
+update marcas set marca = 'tecla3' where id = 4
+
+--SELECT DE TODAS AS MARCAS + A QUANTIDADE DE PRODUTOS DE CADA MARCA
+select *, (select COUNT(*) from produtos where idMarca = marcas.id) as QuantidadeProdutos from marcas
+
+
+--SELECT POR MARCAS
+select id,marca from marcas where id = 2
+
+--DELETE DE MARCAS
+delete from marcas where id = 1
+
+
+-- INSERT DE PRODUTOS
+insert into produtos (nome, idMarca, preco) values ('Teclado', 1, 25.15);
+insert into produtos (nome, idMarca, preco) values ('Mouse', 2, 50);
+insert into produtos (nome, idMarca, preco) values ('Monitor', 3, 88);
+insert into produtos (nome, idMarca, preco) values ('Impressora', 4, 158.5);
+insert into produtos (nome, idMarca, preco) values ('Alto falante', 5, 128.5);
+
+select * from produtos;
+
+select id,nome,idmarca,preco from produtos and idmarca = (select marca from marcas)
+
+-- SELECT COM MARCA E PRODUTOS
+select p.id, p.nome, m.id, m.marca, p.preco from produtos p, marcas m where p.idmarca = m.id
+
+select p.id, p.nome, m.id, m.marca, p.preco from produtos p, marcas m where p.id = 4 and p.idMarca = m.id
+
+
+-- UPDATE DOS PRODUTOS
+update produtos set nome = 'Sou11', idmarca = 3, preco = 10.00 where id = 11
+
+
+-- SELECT PARA CONSULTAR PRODUTOS POR MARCA
+select * from produtos where idmarca = 2
+
+
+select p.id, p.nome, m.marca, p.idMarca, p.preco from produtos p, marcas m where p.idmarca = 1 and m.id = p.idmarca
